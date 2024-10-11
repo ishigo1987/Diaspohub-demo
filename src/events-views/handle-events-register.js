@@ -20,7 +20,7 @@ export default function handleEventsRegister(){
                            checkAuthentification();
                            return setTimeout(()=>{ 
                               return target.parent("#log-in").dispose();
-                           },1000);
+                           },1200);
                     }
 
                     return snackbar({

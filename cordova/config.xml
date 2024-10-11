@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.app.diaspohubdemo" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" android-versionCode="010" version="0.1.0">
+  <name>DiaspoBuy demo</name>
+  <description>
+    DiaspoBuy Demo
+  </description>
+  <author email="stephnguets@yahoo.fr">
+    Nguetseng Stephane
+  </author>
+  <preference name="EnableDeveloperConsole" value="$IS_DEBUG" />
+  <param name="onload" value="true"/>
+   <plugin name="cordova-plugin-android-softinputmode" spec="https://github.com/ishigo1987/cordova-plugin-android-softinputmode.git" />
+   <plugin name="cordova-plugin-screen-orientation" spec="3.0.2" />
+   <plugin name="cordova-plugin-vibration" spec="https://github.com/maxappsmobile/cordova-plugin-vibration.git" />
+   <platform name="android">
+
+    <!-- Splash Screen Image -->
+
+      <!-- <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/android/drawable/splash_screen.xml" /> -->
+
+      <preference name="AndroidWindowSplashScreenBackground" value="#ffffff" />
+  
+      <preference name="android-minSdkVersion" value="26" />
+      
+      <preference name="android-compileSdkVersion" value="34" />
+      
+      <preference name="android-build-tool" value="34" />
+      
+      <preference name="android-targetSdkVersion" value="34" />
+      
+      <!-- This hack is for Android 9 and up for authorizing the app to go to internet -->
+      <!-- We need to put it to false in production but i think that in production mode $IS_DEBUG === false -->
+      <!-- Problem during the development phase with the tabris audio plugin, i put it in comment for now -->
+      <edit-config file="AndroidManifest.xml" target="/manifest/application" mode="merge">
+          <application android:usesCleartextTraffic="$IS_DEBUG" />
+          <application android:largeHeap="true" />
+      </edit-config>
+      <!-- <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+	        <activity android:theme="@style/Theme.App.SplashScreen"></activity>
+      </edit-config> -->
+      
+      <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest">
+
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        
+        <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+        <!-- For Android 13 and Up-->
+
+        <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+        
+      </config-file>
+      
+      <!-- Changes mades only on TabrisJS 3.0+ -->
+      
+      <preference name="Theme" value="@style/Theme.Diaspobuy" />
+
+      <preference name="AndroidPersistentFileLocation" value="Internal" />
+      
+      <icon src="res/android/mdpi.png" density="mdpi" />
+      
+      <icon src="res/android/hdpi.png" density="hdpi" />
+      
+      <icon src="res/android/xhdpi.png" density="xhdpi" />
+      
+      <icon src="res/android/xxhdpi.png" density="xxhdpi" />
+      
+      <icon src="res/android/xxxhdpi.png" density="xxxhdpi" />
+
+      <resource-file src="res/android/values/diaspobuy_theme.xml" target="app/src/main/res/values/diaspobuy_theme.xml" />
+
+  </platform>
+</widget>

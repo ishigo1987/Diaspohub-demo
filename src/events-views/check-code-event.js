@@ -24,7 +24,7 @@ export default function checkCodeEvent(){
                         checkAuthentification();
                         return setTimeout(()=>{
                               return target.parent("#check-code").dispose();
-                        },500);
+                        },1500);
                   }
                   return snackbar({
                         
